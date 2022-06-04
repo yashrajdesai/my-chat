@@ -1,0 +1,14 @@
+.col-4 {
+    padding: 0 !important;
+}
+
+.chatMenu, .chatBox, .chatOnline {
+    padding: 10px;
+}
+
+.chatMenuInput {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 90%;
+}
