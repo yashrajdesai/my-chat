@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ChatOnline from '../ChatOnline/ChatOnline';
 import Conversation from '../Conversation/Conversation';
 import Message from '../message/Message';
 import './Messenger.css';
+import axios from "axios";
 
 function Messenger() {
+
+  const [conversations, setConversations] = useState([]);
+
+  const userId = "629dfed01d86636b7f351edb";
+
+  useEffect(() => {
+    const getConversations = async () => {
+      try {
+        const res = await axios.get("/conversations/" + userId);
+        setConversations(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getConversations();
+  }, [userId]);
+  console.log(conversations);
   return (
     <>
         <div className='messenger'>
